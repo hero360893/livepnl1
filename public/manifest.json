@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "LivePnL — Crypto Position Tracker",
+  "version": "1.0.0",
+  "description": "Floating real-time P&L tracker for CoinDCX and Binance",
+  "permissions": ["storage", "alarms", "sidePanel"],
+  "host_permissions": [
+    "https://api.coindcx.com/*",
+    "https://public.coindcx.com/*",
+    "https://fapi.binance.com/*",
+    "https://api.binance.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_icon": { "128": "icons/icon128.png" } },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "web_accessible_resources": [
+    { "resources": ["pip.html", "pip.js", "pip.css"], "matches": ["<all_urls>"] }
+  ],
+  "icons": { "128": "icons/icon128.png" },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src https://api.coindcx.com https://public.coindcx.com https://fapi.binance.com https://api.binance.com wss://fstream.binance.com"
+  }
+}
